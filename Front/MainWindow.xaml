@@ -1,0 +1,270 @@
+﻿<Window x:Class="Pattern2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pattern2"
+        mc:Ignorable="d"
+        Closing="Window_Closing"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Background>
+        <SolidColorBrush Color="Pink">
+        </SolidColorBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Background="LightBlue" CornerRadius="10">
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="BtnProduct" Margin=" 3 0 3 0" Width="130" Height="30" Click="BtnProduct_Click">Продукция</Button>
+                <Button x:Name="BtnEmployee" Margin=" 3 0 3 0" Width="130" Height="30" Click="BtnEmployee_Click">Организации</Button>
+                <Button x:Name="BtnUser" Margin=" 3 0 3 0" Height="30" Width="130" Click="BtnUser_Click">Пользователи</Button>
+                <Button x:Name="BtnExpert" Margin=" 3 0 3 0" Height="30" Width="130" Click="BtnExpert_Click">Эксп. метод</Button>
+                <Button x:Name="BtnReport" Margin=" 3 0 3 0" Height="30" Width="130" Click="BtnReport_Click">Отчет</Button>
+                <Button x:Name="BtnExit" Margin=" 3 0 3 0" Height="30" Width="80" Click="BtnExit_Click">Выход</Button>
+            </StackPanel>
+        </Border>
+
+        <Border Visibility="Collapsed" x:Name="ProductControl" BorderBrush="LightBlue" BorderThickness="2" CornerRadius="10" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Margin="10 0 0 0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <DataGrid x:Name="DGProduct" Grid.Column="1" AutoGenerateColumns="False" Margin="10" Background="LightBlue" PreviewKeyDown="DGProduct_PreviewKeyDown" SelectionChanged="DGProduct_SelectionChanged" BeginningEdit="DGProduct_BeginningEdit">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Название" Width="*" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Стоимость" Width="*" Binding="{Binding Path=Cost}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Артикул" Width="*" Binding="{Binding Path=VendorCode}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Border Grid.Column="0" Background="LightBlue" Margin="0 10 0 0" CornerRadius="10" Height="150" VerticalAlignment="Top">
+                    <StackPanel >
+                        <Button x:Name="BtnViewProduct" Margin=" 3 10 3 0" Height="30" Click="BtnViewProduct_Click">Редактирование</Button>
+                        <Button x:Name="BtnSearch" Margin=" 3 10 3 0" Height="30" Click="BtnSearch_Click">Поиск</Button>
+                        <Button x:Name="BtnFilter" Margin=" 3 10 3 0" Height="30" RenderTransformOrigin="0.502,0.5" Click="BtnFilter_Click">Фильтрация</Button>
+                    </StackPanel>
+                </Border>
+
+                <Border x:Name="SearchProduct" Visibility="Collapsed" Grid.Column="0" Margin="0 00 0 10" Background="LightBlue" CornerRadius="10" Height="150" VerticalAlignment="Bottom">
+                    <StackPanel>
+                        <TextBlock FontSize="20" FontWeight="Bold" TextAlignment="Center">Поиск</TextBlock>
+
+                        <TextBox x:Name="SearchName" Height="25" Margin="5 10 5 0" FontSize="14" VerticalContentAlignment="Center">Название</TextBox>
+                        <Button x:Name="BtnApplySearch" Height="25" Margin="5 15 5 0" Click="BtnApplySearch_Click">Применить</Button>
+                    </StackPanel>
+                </Border>
+
+                <Border x:Name="FilterProduct" Visibility="Collapsed" Grid.Column="0" Background="LightBlue" Margin="0 00 0 10" CornerRadius="10" Height="120" VerticalAlignment="Bottom">
+                    <StackPanel>
+                        <TextBlock FontSize="18" FontWeight="Bold" TextAlignment="Center">Фильтрация</TextBlock>
+                        <TextBlock FontSize="14" FontWeight="Bold" Margin="5 5 5 0" TextAlignment="Center">Стоимость</TextBlock>
+                        <StackPanel Orientation="Horizontal" Margin="5 2 5 0" HorizontalAlignment="Center">
+                            <TextBox x:Name="FilterFirstFrom" Width="50" Height="25" FontSize="14" VerticalContentAlignment="Center">От</TextBox>
+                            <TextBox x:Name="FilterFirstTo"   Width="50" Height="25" Margin="10 0 0 0" FontSize="14" VerticalContentAlignment="Center">До</TextBox>
+                        </StackPanel>
+
+                        <Button x:Name="BtnApplyFilter" Height="25" Margin="5 5 5 0" Click="BtnApplyFilter_Click">Применить</Button>
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+        </Border>
+
+        <Border Visibility="Collapsed" x:Name="EmployeeControl" BorderBrush="LightBlue" BorderThickness="2" CornerRadius="10" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Margin="10 0 0 0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <DataGrid x:Name="DGEmployee" Grid.Column="1" AutoGenerateColumns="False" Margin="10" Background="LightBlue" PreviewKeyDown="DGEmployee_PreviewKeyDown"  SelectionChanged="DGEmployee_SelectionChanged" BeginningEdit="DGEmployee_BeginningEdit">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Название" Width="*" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="УНП" Width="0.5*" Binding="{Binding Path=UNP}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Сумма кредита" Width="0.5*" Binding="{Binding Path=SumToLoan}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Border Grid.Column="0" Background="LightBlue" CornerRadius="10" Margin="0 10 0 0" Height="170" VerticalAlignment="Top">
+                    <StackPanel >
+                        <Button x:Name="BtnViewEmployee" Margin=" 3 10 3 0" Height="30" Click="BtnViewEmployee_Click">Редактирование</Button>
+                        <Button x:Name="BtnSearchEmployee" Margin=" 3 10 3 0" Height="30" Click="BtnSearchEmployee_Click">Поиск</Button>
+                        <Button x:Name="BtnFilterEmployee" Margin=" 3 10 3 0" Height="30" Click="BtnFilterEmployee_Click">Фильтрация</Button>
+                    </StackPanel>
+                </Border>
+
+                <Border x:Name="SearchEmployee" Visibility="Collapsed" Grid.Column="0" Background="LightBlue" Margin="0 00 0 10" CornerRadius="10" Height="150" VerticalAlignment="Bottom">
+                    <StackPanel>
+                        <TextBlock FontSize="20" FontWeight="Bold" TextAlignment="Center">Поиск</TextBlock>
+
+                        <TextBox x:Name="SearchNameEmployee" Height="25" Margin="5 10 5 0" FontSize="14" VerticalContentAlignment="Center">Название</TextBox>
+                        <Button x:Name="BtnApplySearchEmployee" Height="25" Margin="5 15 5 0" Click="BtnApplySearchEmployee_Click">Применить</Button>
+                    </StackPanel>
+                </Border>
+
+                <Border x:Name="FilterEmployee" Visibility="Visible" Margin="0 0 0 10" Grid.Column="0" Background="LightBlue" CornerRadius="10" Height="120" VerticalAlignment="Bottom">
+                    <StackPanel>
+                        <TextBlock FontSize="18" FontWeight="Bold" TextAlignment="Center">Фильтрация</TextBlock>
+                        <TextBlock FontSize="14" FontWeight="Bold" Margin="5 5 5 0" TextAlignment="Center">Сумма заема</TextBlock>
+                        <StackPanel Orientation="Horizontal" Margin="5 2 5 0" HorizontalAlignment="Center">
+                            <TextBox x:Name="FilterExpFrom" Width="50" Height="25" FontSize="14" VerticalContentAlignment="Center">От</TextBox>
+                            <TextBox x:Name="FilterExpTo"   Width="50" Height="25" Margin="10 0 0 0" FontSize="14" VerticalContentAlignment="Center">До</TextBox>
+                        </StackPanel>
+
+                        <Button x:Name="BtnApplyFilterEmployee" Height="25" Margin="5 5 5 0" Click="BtnApplyFilterEmployee_Click">Применить</Button>
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+        </Border>
+
+        <Border Visibility="Collapsed" x:Name="UserControl" BorderBrush="LightBlue" BorderThickness="2" CornerRadius="10" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Margin="10 0 0 0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <DataGrid x:Name="DGPUsers" Grid.Column="1" AutoGenerateColumns="False" CanUserAddRows="False" Margin="10" Background="LightBlue" PreviewKeyDown="DGPUsers_PreviewKeyDown" SelectionChanged="DGPUsers_SelectionChanged" BeginningEdit="DGPUsers_BeginningEdit" LostFocus="DGPUsers_LostFocus">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Логин" Width="*" Binding="{Binding Path=Login}" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Статус" Width="*" Binding="{Binding Path=Status}" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridCheckBoxColumn x:Name="BanUserColumn" Header="Бан" Width="*" Binding="{Binding Path=IsBanned}"></DataGridCheckBoxColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Border Grid.Column="0" Background="LightBlue" Margin="0 10 0 0" CornerRadius="10" Height="150" VerticalAlignment="Top">
+                    <StackPanel >
+                        <Button x:Name="BtnViewUser" Margin=" 3 10 3 0" Height="30" Click="BtnViewUser_Click">Редактирование</Button>
+                        <Button x:Name="BtnSearchUser" Margin=" 3 10 3 0" Height="30" Click="BtnSearchUser_Click">Поиск</Button>
+                        <Button x:Name="BtnAddUser" Margin=" 3 10 3 0" Height="30" Click="BtnAddUser_Click">Добавление</Button>
+                    </StackPanel>
+                </Border>
+
+                <Border x:Name="SearchUser" Visibility="Collapsed" Grid.Column="0" Margin="0  0 0 10" Background="LightBlue" CornerRadius="10" Height="150" VerticalAlignment="Bottom">
+                    <StackPanel>
+                        <TextBlock FontSize="20" FontWeight="Bold" TextAlignment="Center">Поиск</TextBlock>
+
+                        <TextBox x:Name="SearchLogin" Height="25" Margin="5 10 5 0" FontSize="14" VerticalContentAlignment="Center">Логин</TextBox>
+                        <Button x:Name="BtnApplySearchUser" Height="25" Margin="5 15 5 0" Click="BtnApplySearchUser_Click">Применить</Button>
+                    </StackPanel>
+                </Border>
+
+                <Border x:Name="AddUser" Visibility="Collapsed" Grid.Column="0" Background="LightBlue" Margin="0 0 0 10" CornerRadius="10" Height="175" VerticalAlignment="Bottom">
+                    <StackPanel>
+                        <TextBlock FontSize="19" FontWeight="Bold" TextAlignment="Center">Добавление</TextBlock>
+
+                        <TextBox x:Name="AddLogin" Height="25" Margin="5 10 5 0" FontSize="14" VerticalContentAlignment="Center">Логин</TextBox>
+                        <PasswordBox x:Name="AddPassword" Height="25" Margin="5 10 5 0" FontSize="14" VerticalContentAlignment="Center"></PasswordBox>
+                        <ComboBox x:Name="AddType" Height="25" Margin="5 10 5 0" FontSize="14" VerticalContentAlignment="Center">
+                            <ComboBoxItem>Админ</ComboBoxItem>
+                            <ComboBoxItem>Клиент</ComboBoxItem>
+                            <ComboBoxItem>Эксперт</ComboBoxItem>
+                        </ComboBox>
+                        <Button x:Name="BtnApplyAddUser" Height="25" Margin="5 15 5 0" Click="BtnApplyAddUser_Click">Добавить</Button>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        <Border Visibility="Visible" x:Name="ExpertMethod" BorderBrush="LightBlue" BorderThickness="2" CornerRadius="10" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Margin="10 0 0 0">
+            <Grid x:Name="Predp">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="60*" />
+                    <ColumnDefinition Width="60*" />
+                    <ColumnDefinition Width="60*" />
+                    <ColumnDefinition Width="60*" />
+                    <ColumnDefinition Width="60*" />
+                    <ColumnDefinition Width="60*" />
+                    <ColumnDefinition Width="20*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*" />
+                    <RowDefinition Height="30*" />
+                    <RowDefinition Height="30*" />
+                    <RowDefinition Height="30*" />
+                    <RowDefinition Height="30*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="30*" />
+                </Grid.RowDefinitions>
+                <TextBlock FontWeight="Thin" Grid.Column="1" Grid.Row="1" Text="1" HorizontalAlignment="Center" Height="30" Width="50" FontSize="20" TextAlignment="Center"/>
+                <TextBlock FontWeight="Thin" Grid.Column="2" Grid.Row="1" Text="2" HorizontalAlignment="Center" Height="30" Width="50" FontSize="20" TextAlignment="Center"/>
+                <TextBlock FontWeight="Thin" Grid.Column="3" Grid.Row="1" Text="3" HorizontalAlignment="Center" Height="30" Width="50" FontSize="20" TextAlignment="Center"/>
+                <TextBlock FontWeight="Thin" Grid.Column="4" Grid.Row="1" Text="4" HorizontalAlignment="Center" Height="30" Width="50" FontSize="20" TextAlignment="Center"/>
+                <TextBlock FontWeight="Thin" Grid.Column="5" Grid.Row="1" Text="5" HorizontalAlignment="Center" Height="30" Width="50" FontSize="20" TextAlignment="Center"/>
+
+                <TextBlock FontWeight="Thin" Grid.Column="6" Grid.Row="1" Text="Rate" HorizontalAlignment="Center" Height="30" Width="50" FontSize="20" TextAlignment="Center"/>
+
+                <TextBlock FontWeight="Thin" Grid.Column="1" Grid.Row="0" Text="Метод взвешенных экспертных оценок" Grid.ColumnSpan="7" FontSize="36" TextAlignment="Center"/>
+
+                <TextBox Name="Z1" Background="LightBlue" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center" Margin="1, 1, 1, 1" FontSize="24"/>
+                <TextBox Name="Z2" Background="LightBlue" Grid.Column="2" Grid.Row="2" VerticalContentAlignment="Center" Margin="1, 1, 1, 1" FontSize="24"/>
+                <TextBox Name="Z3" Background="LightBlue" Grid.Column="3" Grid.Row="2" VerticalContentAlignment="Center" Margin="1, 1, 1, 1" FontSize="24"/>
+                <TextBox Name="Z4" Background="LightBlue" Grid.Column="4" Grid.Row="2" VerticalContentAlignment="Center" Margin="1, 1, 1, 1" FontSize="24"/>
+                <TextBox Name="Z5" Background="LightBlue" Grid.Column="5" Grid.Row="2" VerticalContentAlignment="Center" Margin="1, 1, 1, 1" FontSize="24"/>
+
+                <ComboBox Name="R1" Background="LightBlue" VerticalContentAlignment="Center" Grid.Column="6" Grid.Row="2" Margin="1, 1, 1, 1" FontSize="24">
+                    <TextBlock>1</TextBlock>
+                    <TextBlock>2</TextBlock>
+                    <TextBlock>3</TextBlock>
+                    <TextBlock>4</TextBlock>
+                    <TextBlock>5</TextBlock>
+                    <TextBlock>6</TextBlock>
+                    <TextBlock>7</TextBlock>
+                    <TextBlock>8</TextBlock>
+                    <TextBlock>9</TextBlock>
+                    <TextBlock>10</TextBlock>
+                </ComboBox>
+                
+                <TextBox Name="Z11" Background="LightBlue" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" Margin="1, 1, 1, 1" FontSize="24"/>
+                <TextBox Name="Z12" Background="LightBlue" Grid.Column="2" Grid.Row="3" VerticalContentAlignment="Center" Margin="1, 1, 1, 1" FontSize="24"/>
+                <TextBox Name="Z13" Background="LightBlue" Grid.Column="3" Grid.Row="3" VerticalContentAlignment="Center" Margin="1, 1, 1, 1" FontSize="24"/>
+                <TextBox Name="Z14" Background="LightBlue" Grid.Column="4" Grid.Row="3" VerticalContentAlignment="Center" Margin="1, 1, 1, 1" FontSize="24"/>
+                <TextBox Name="Z15" Background="LightBlue" Grid.Column="5" Grid.Row="3" VerticalContentAlignment="Center" Margin="1, 1, 1, 1" FontSize="24"/>
+
+                <ComboBox Name="R11" Background="LightBlue" VerticalContentAlignment="Center" Grid.Column="6" Grid.Row="3" Margin="1, 1, 1, 1" FontSize="24">
+                    <TextBlock>1</TextBlock>
+                    <TextBlock>2</TextBlock>
+                    <TextBlock>3</TextBlock>
+                    <TextBlock>4</TextBlock>
+                    <TextBlock>5</TextBlock>
+                    <TextBlock>6</TextBlock>
+                    <TextBlock>7</TextBlock>
+                    <TextBlock>8</TextBlock>
+                    <TextBlock>9</TextBlock>
+                    <TextBlock>10</TextBlock>
+                </ComboBox>
+
+
+                <TextBlock FontWeight="Bold" x:Name="Rez_Z1" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" Width="60" FontSize="20" TextAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2"/>
+                <TextBlock FontWeight="Bold" x:Name="Rez_Z2" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" Width="60" FontSize="20" TextAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2"/>
+                <TextBlock FontWeight="Bold" x:Name="Rez_Z3" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" Width="60" FontSize="20" TextAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2"/>
+                <TextBlock FontWeight="Bold" x:Name="Rez_Z4" Grid.Column="4" Grid.Row="4" HorizontalAlignment="Center" Width="60" FontSize="20" TextAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2"/>
+                <TextBlock FontWeight="Bold" x:Name="Rez_Z5" Grid.Column="5" Grid.Row="4" HorizontalAlignment="Center" Width="60" FontSize="20" TextAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2"/>
+
+
+                <Button FontWeight="Thin" Grid.Column="5" Grid.Row="7" Content="OK" Click="Button_OK" FontSize="24"/>
+                <Button FontWeight="Thin" Grid.Column="6" Grid.Row="7" Content="Сброс" Click="Button_Reset" FontSize="24"/>
+
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

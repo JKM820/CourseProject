@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2ece741804144cd3b85d12d51efa76f6" Name="Diagram1" >
+        <EntityTypeShape EntityType="EntityModel.Admin" Width="1.5" PointX="4.375" PointY="1.25" />
+        <EntityTypeShape EntityType="EntityModel.Client" Width="1.5" PointX="2.25" PointY="1.25" />
+        <EntityTypeShape EntityType="EntityModel.Expert" Width="2" PointX="7" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntityModel.ConstructionRate" Width="1.625" PointX="11.875" PointY="2.375" />
+        <AssociationConnector Association="EntityModel.ExpertRate" />
+        <EntityTypeShape EntityType="EntityModel.Construction" Width="1.5" PointX="7.125" PointY="4.5" />
+        <AssociationConnector Association="EntityModel.RateConstruction" />
+        <EntityTypeShape EntityType="EntityModel.ExpertCompetensRate" Width="2" PointX="9.375" PointY="1.25" />
+        <AssociationConnector Association="EntityModel.ExpertCompetensRateExpert" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

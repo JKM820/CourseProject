@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryForTCPConnectionAPI(C-sharp)", "ClassLibraryForTCPConnectionAPI(C-sharp)\ClassLibraryForTCPConnectionAPI(C-sharp).csproj", "{F6C439DA-C84E-48EA-87CA-25A35DABA960}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseEntities", "DatabaseEntities\DatabaseEntities.csproj", "{229C7E2E-F375-4512-A30B-9FECF5F5939E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pattern2", "Pattern2\Pattern2.csproj", "{803F56D3-8053-4762-84DD-C5B4706847ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPConnectionAPIServer(C-sharp)", "TCPConnectionAPI(C-sharp)\TCPConnectionAPIServer(C-sharp).csproj", "{8D5CC562-EF8C-4B9B-882F-AB121C5B02AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPConnectionAPIClientModule(C-sharp)", "TCPConnectionAPIClientModule(C-sharp)\TCPConnectionAPIClientModule(C-sharp).csproj", "{266DEF97-E3A7-4B60-B8FD-4C1C8E35833B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6C439DA-C84E-48EA-87CA-25A35DABA960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6C439DA-C84E-48EA-87CA-25A35DABA960}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6C439DA-C84E-48EA-87CA-25A35DABA960}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6C439DA-C84E-48EA-87CA-25A35DABA960}.Release|Any CPU.Build.0 = Release|Any CPU
+		{229C7E2E-F375-4512-A30B-9FECF5F5939E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{229C7E2E-F375-4512-A30B-9FECF5F5939E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{229C7E2E-F375-4512-A30B-9FECF5F5939E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{229C7E2E-F375-4512-A30B-9FECF5F5939E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{803F56D3-8053-4762-84DD-C5B4706847ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{803F56D3-8053-4762-84DD-C5B4706847ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{803F56D3-8053-4762-84DD-C5B4706847ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{803F56D3-8053-4762-84DD-C5B4706847ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D5CC562-EF8C-4B9B-882F-AB121C5B02AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D5CC562-EF8C-4B9B-882F-AB121C5B02AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D5CC562-EF8C-4B9B-882F-AB121C5B02AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D5CC562-EF8C-4B9B-882F-AB121C5B02AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{266DEF97-E3A7-4B60-B8FD-4C1C8E35833B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{266DEF97-E3A7-4B60-B8FD-4C1C8E35833B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{266DEF97-E3A7-4B60-B8FD-4C1C8E35833B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{266DEF97-E3A7-4B60-B8FD-4C1C8E35833B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE4C42DE-4651-414C-BE70-2FC87541C314}
+	EndGlobalSection
+EndGlobal
